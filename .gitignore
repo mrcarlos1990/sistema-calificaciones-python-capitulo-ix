@@ -3,3 +3,7 @@ __pycache__/
 .venv/
 .vscode/
 tmp/
+
+# Respaldos locales: no forman parte de la publicación.
+documentacion/respaldo_*/
+documentacion/version_anterior_*/

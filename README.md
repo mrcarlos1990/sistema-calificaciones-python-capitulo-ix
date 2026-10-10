@@ -78,7 +78,7 @@ Repositorio público creado y verificado en la cuenta `mrcarlos1990`, con autori
 
 [sistema-calificaciones-python-capitulo-ix](https://github.com/mrcarlos1990/sistema-calificaciones-python-capitulo-ix)
 
-El documento para entregar es el PDF de 18 páginas de `ENTREGA_FINAL`, con la portada institucional y las siete capturas reales:
+El documento para entregar es el PDF de 17 páginas de `ENTREGA_FINAL`, con la portada institucional y las siete capturas reales:
 
 [Descargar Amauri_Feliz_Actividad_Arreglos.pdf](https://github.com/mrcarlos1990/sistema-calificaciones-python-capitulo-ix/raw/refs/heads/main/ENTREGA_FINAL/Amauri_Feliz_Actividad_Arreglos.pdf)
 

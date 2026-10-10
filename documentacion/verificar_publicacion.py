@@ -38,10 +38,11 @@ def verificar():
     assert descargado == (RAIZ / pdf).read_bytes()
     from io import BytesIO
     from pypdf import PdfReader
-    assert len(PdfReader(BytesIO(descargado)).pages) == 18
+    assert len(PdfReader(BytesIO(descargado)).pages) == 17
     resultado = {"url": metadata["html_url"], "publico": True,
                  "acceso_sin_credenciales": True, "archivos_identicos": comparados,
-                 "pdf_descargado_identico": True, "rama": "main", "tree_sha": arbol["sha"]}
+                 "pdf_descargado_identico": True, "paginas_pdf": 17,
+                 "pdf_sha256": hashlib.sha256(descargado).hexdigest(), "rama": "main", "tree_sha": arbol["sha"]}
     destino = RAIZ / "tmp/verificacion_publica.json"
     destino.parent.mkdir(exist_ok=True)
     destino.write_text(json.dumps(resultado, ensure_ascii=False, indent=2), encoding="utf-8")

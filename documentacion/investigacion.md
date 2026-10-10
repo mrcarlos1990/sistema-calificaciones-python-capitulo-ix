@@ -1,14 +1,14 @@
 # Introducción
 
-Organizar varias calificaciones permite consultar resultados sin mantener una variable diferente para cada estudiante. Este trabajo estudia los arreglos, los índices y los vectores mediante un sistema de consola en Python. El ejemplo reúne cinco nombres y cinco notas, ofrece un menú y comprueba que las entradas se encuentren dentro de los límites establecidos.
+En este trabajo voy a explicar lo que aprendí sobre los arreglos, los índices y los vectores. Durante la investigación comprendí cómo guardar varios datos en una lista, consultar sus posiciones y recorrerlos con ciclos. Para aplicar estos conocimientos, desarrollé un sistema de calificaciones en Python con los nombres y las notas de cinco estudiantes.
 
-Las explicaciones corresponden al código entregado y las pruebas se apoyan en transcripciones reales. La ejecución se realizó con Python 3.12.14 desde una consola automatizada en Windows. Las siete capturas aportadas por el estudiante muestran además el código y la ejecución manual en Visual Studio Code. Las pruebas automatizadas y las capturas constituyen evidencias distintas y sus resultados coinciden.
+En la práctica organicé dos listas relacionadas y un menú para consultar las notas, modificarlas, calcular el promedio y buscar estudiantes. También utilicé condiciones para identificar aprobados y reprobados. A continuación presento los conceptos, los fragmentos de mi código, las capturas de la ejecución y los resultados de las pruebas. Con ellos explico qué hice y cómo funciona el programa.
 
 # Objetivos
 
-El objetivo general es demostrar cómo almacenar y procesar información con listas que representan vectores unidimensionales.
+Objetivo general: comprender cómo almacenar y procesar información mediante listas de Python que representan vectores unidimensionales, y aplicar lo aprendido en un sistema de calificaciones.
 
-Los objetivos específicos son relacionar nombres y notas por sus índices; consultar y modificar posiciones; recorrer listas con ciclos; calcular resultados; aplicar condiciones para clasificar estudiantes; validar entradas y comprobar el programa con casos reproducibles.
+Objetivos específicos: relacionar cada nombre con su nota mediante un índice; consultar y modificar elementos; recorrer las listas con for y while; calcular el promedio; utilizar condiciones para contar aprobados y reprobados; buscar estudiantes y comprobar las respuestas del programa ante entradas incorrectas.
 
 # 9.1 ¿Qué es un arreglo?
 
@@ -23,9 +23,9 @@ print(nota)
 print(calificaciones[0])
 ```
 
-Este ejemplo educativo representa las calificaciones de cinco estudiantes. Contiene cinco elementos y almacena números enteros. Ambas instrucciones de impresión muestran 85, pero la segunda consulta una posición dentro de una colección. Puedo consultar otra posición o recorrer las cinco notas para procesarlas. Estos valores son un ejemplo conceptual; el programa práctico utiliza las notas 85, 67, 92, 74 y 58. Una lista también puede almacenar texto o valores lógicos. Para este ejercicio se separan los nombres, que son cadenas, y las notas, que son enteros.
+Este ejemplo educativo representa las calificaciones de cinco estudiantes. Contiene cinco elementos y almacena números enteros. Ambas instrucciones de impresión muestran 85, pero la segunda consulta una posición dentro de una colección. Puedo consultar otra posición o recorrer las cinco notas para procesarlas. Estos valores son un ejemplo conceptual; el programa práctico utiliza las notas 85, 67, 92, 74 y 58. Una lista también puede almacenar texto o valores lógicos. En mi programa separé los nombres, que son cadenas de texto, y las notas, que son números enteros.
 
-Conviene distinguir términos: muchos lenguajes tienen arreglos de tamaño fijo y elementos del mismo tipo. Las listas de Python pueden cambiar de tamaño y admitir tipos diferentes. Aquí se utilizan como una representación práctica de arreglos, sin afirmar que todas sus propiedades sean iguales. Las ventajas se observan al recorrer las cinco notas con una sola secuencia de instrucciones.
+En otros lenguajes, los arreglos suelen guardar datos del mismo tipo y tener un tamaño fijo. Las listas de Python pueden cambiar de tamaño y contener tipos diferentes. En este ejercicio las utilizo para representar arreglos, aunque no son iguales a los arreglos tipados de otras bibliotecas. Su ventaja es que puedo recorrer las cinco notas sin escribir una instrucción distinta para cada una.
 
 # 9.2 Índices y subíndices
 
@@ -42,13 +42,13 @@ nombres[1] = "Pedro"
 
 La primera impresión muestra Ana y la segunda Carlos. La última instrucción cambia Luis por Pedro y no imprime nada por sí misma. Después, la lista queda como `["Ana", "Pedro", "Carlos", "María"]`. Consultar `nombres[4]` produce `IndexError`, porque esa posición no existe. El programa valida el índice antes de acceder a las listas para evitar ese error.
 
-Python también admite índices negativos; por ejemplo, -1 identifica el último elemento. El menú de este proyecto acepta únicamente índices de 0 a 4 para mantener una numeración clara y evitar confundir una entrada negativa con una consulta válida.
+Python también admite índices negativos; por ejemplo, -1 identifica el último elemento. En el menú de mi programa acepto únicamente índices de 0 a 4. Así mantengo una numeración clara y evito confundir una entrada negativa con una consulta válida.
 
 # 9.3 Vectores y características
 
-En programación introductoria, un vector es un arreglo unidimensional. Unidimensional significa que se necesita un solo índice para ubicar un elemento. No es una tabla de filas y columnas. En este trabajo cada lista es una secuencia ordenada, accesible por posición, recorrible y modificable.
+En programación introductoria, un vector es un arreglo unidimensional. Unidimensional significa que se necesita un solo índice para ubicar un elemento. No es una tabla de filas y columnas. En mi práctica utilizo listas ordenadas que puedo consultar por posición, recorrer y modificar.
 
-Los elementos conservan un orden y cada posición tiene un índice. Un vector permite almacenar varios valores, consultarlos, modificarlos y recorrerlos en secuencia. Para este ejercicio introductorio, las listas de Python representan vectores unidimensionales; no son arreglos tipados de otras bibliotecas.
+Los elementos conservan un orden y cada posición tiene un índice. Un vector permite almacenar varios valores, consultarlos, modificarlos y recorrerlos en secuencia. En este ejercicio utilizo las listas de Python como vectores unidimensionales; no son arreglos tipados de otras bibliotecas.
 
 El ciclo `for` visita un elemento en cada iteración:
 
@@ -72,27 +72,27 @@ while indice < len(edades):
 
 Primero inicializo indice en 0. Antes de cada repetición evalúo si es menor que len(edades), que vale 5. Si la condición es verdadera, consulto edades[indice] y lo imprimo. Después aumento el índice en uno. Se visitan las posiciones 0, 1, 2, 3 y 4, y se muestran 18, 21, 19, 25 y 20. Cuando el índice llega a 5, la condición es falsa y el ciclo termina. El incremento evita que se repita indefinidamente la misma posición.
 
-Estos dos ejemplos pertenecen a la investigación. En main.py, `for` recorre las listas y `while` mantiene activo el menú y repite la lectura de entradas incorrectas.
+Estos ejemplos me ayudan a comprender las dos formas de recorrer un vector. En mi programa utilicé for para recorrer las listas y while para mantener el menú activo y volver a solicitar una entrada cuando es incorrecta.
 
 # Desarrollo del proyecto
 
-El problema consiste en consultar y actualizar las calificaciones de cinco estudiantes sin perder la relación entre una persona y su nota. Un sistema pequeño puede ayudar a organizar un ejercicio académico, calcular resultados rápidamente y reducir errores al introducir datos.
+Para realizar esta práctica, organicé las calificaciones de cinco estudiantes. Mi propósito fue consultar y actualizar sus notas sin perder la relación entre cada persona y su calificación. Con el programa puedo encontrar información y calcular los resultados sin hacerlo por separado para cada estudiante.
 
-La solución propuesta utiliza dos listas del mismo tamaño y orden. El elemento 0 de estudiantes es Ana y el elemento 0 de calificaciones es 85. Si se cambiara el orden de una sola lista, se podrían asignar notas a personas equivocadas. Por eso el programa modifica únicamente la nota en la posición seleccionada y no ordena las listas por separado.
+Primero organicé dos listas con cinco elementos: estudiantes para los nombres y calificaciones para las notas. En ambas mantuve el mismo orden. Ana ocupa la posición 0 y su nota, 85, está en esa misma posición de la otra lista. Si cambiara el orden de una sola lista, podría mostrar una nota con el nombre equivocado. Por eso modifico la nota mediante su índice y mantengo esa relación.
 
-Los nombres Ana, Luis, Carlos, Maria y Pedro y las notas 85, 67, 92, 74 y 58 son datos de ejemplo indicados en el enunciado. Las pruebas ejecutan ese conjunto y modificaciones de demostración. No se consultaron expedientes académicos ni bases de datos de estudiantes para obtenerlos.
+Trabajé con los datos de ejemplo del enunciado: Ana, Luis, Carlos, Maria y Pedro, con notas de 85, 67, 92, 74 y 58. Para comparar los resultados, partí de esos valores y probé cambios en algunas calificaciones.
 
-La escala permitida va de 0 a 100 y admite enteros. El mínimo de aprobación es 70, una regla definida exclusivamente para este proyecto. Los datos permanecen en memoria: al cerrar se pierden las modificaciones y al iniciar otra sesión vuelven los valores originales. No se utilizan archivos de almacenamiento, bases de datos ni interfaces gráficas en la aplicación.
+Para el ejercicio establecí una escala de 0 a 100 con notas enteras y un mínimo de 70 para aprobar. Esta es una regla de mi programa, no una norma oficial del ITLA. Guardé los datos en las listas durante la ejecución: al salir se pierden los cambios y, cuando inicio otra sesión, aparecen nuevamente las notas originales.
 
 ## Herramientas y funcionamiento
 
-El archivo `main.py` contiene la aplicación y utiliza funciones sencillas. Primero se prepararon las listas y el menú; luego se ejecutaron sesiones con entradas controladas y se comprobaron las salidas. Los registros conservan tanto las entradas enviadas como el texto producido y el código de salida del proceso.
+Después de organizar las listas, desarrollé un menú dentro de un ciclo while para poder elegir una operación y continuar hasta seleccionar la salida. Separé las tareas en funciones sencillas: mostrar las notas, calcular el promedio, buscar un estudiante y leer un número válido. En main.py puedo seguir cada función y comprender para qué la utilicé.
 
-Python ejecuta el código. Visual Studio Code es el editor utilizado para las capturas del código y la terminal integrada. La terminal de Windows permite iniciar el programa. Git sirve para registrar versiones y GitHub para alojar y compartir el repositorio. El repositorio público de GitHub se publicó y su acceso se verificó sin credenciales. Las capturas documentan la ejecución realizada por el estudiante.
+Para realizar la práctica utilicé Python y Visual Studio Code. Abrí el archivo en el editor y ejecuté `py main.py` desde la terminal integrada de Windows. Con Git organicé los archivos del proyecto y mediante GitHub compartí el código para que el profesor pueda consultarlo.
 
-La opción 1 muestra nombres, notas e índices. La 2 consulta una posición. La 3 calcula el promedio; 4 y 5 muestran máximo y mínimo. La 6 muestra y cuenta aprobados y la 7 hace lo mismo con reprobados. La 8 cambia una nota y muestra el valor anterior y el nuevo. La 9 busca un nombre sin distinguir mayúsculas y quitando espacios externos. La 10 muestra el resumen actualizado. La opción 0 termina el programa.
+Organicé el menú en diez operaciones. Con la opción 1 muestro los estudiantes y sus notas; con la 2 consulto un índice; y con la 3 obtengo el promedio. Las opciones 4 y 5 muestran la nota más alta y la más baja. Con la 6 y la 7 consulto y cuento aprobados y reprobados. En la 8 modifico una nota; en la 9 busco un nombre; y en la 10 obtengo el resumen actualizado. Para terminar utilizo la opción 0.
 
-`leer_entero` convierte la entrada mediante `int`. Si hay letras o un decimal, captura `ValueError` y solicita otro entero. Si el valor queda fuera del rango, muestra los límites y repite la pregunta. Un índice incorrecto no llega a utilizarse para acceder a la lista. Las interrupciones de entrada y de teclado también reciben un mensaje de cierre.
+Agregué leer_entero para solicitar un número entero y comprobar sus límites. Si escribo letras o un decimal, la función captura ValueError y vuelve a preguntar. Si introduzco un valor fuera del rango, recibo un mensaje con los límites permitidos. Así puedo corregirlo antes de consultar una posición de la lista. También incluí un mensaje de cierre si interrumpo la entrada o utilizo el teclado para detener el programa.
 
 # Explicación del código
 
@@ -103,7 +103,7 @@ estudiantes = ["Ana", "Luis", "Carlos", "Maria", "Pedro"]
 calificaciones = [85, 67, 92, 74, 58]
 ```
 
-Cada lista almacena cinco elementos. El resultado esperado al mostrar ambas listas es Ana 85, Luis 67, Carlos 92, Maria 74 y Pedro 58. Esto aplica el almacenamiento de varios datos y la correspondencia por posición estudiada en el capítulo.
+Guardo cinco nombres en estudiantes y cinco notas en calificaciones. Uso el mismo índice para relacionar ambas listas. Al mostrarlas obtengo Ana 85, Luis 67, Carlos 92, Maria 74 y Pedro 58. Así puedo almacenar varios datos sin crear una variable para cada estudiante.
 
 ## 2. Acceso mediante índices
 
@@ -112,7 +112,7 @@ indice = leer_entero("Índice del estudiante (0 a 4): ", 0, 4)
 print(f"{estudiantes[indice]}: {calificaciones[indice]} puntos")
 ```
 
-Después de validar la posición se consulta el mismo índice en las dos listas. Al introducir 2 se muestra Carlos: 92 puntos. El índice permite recuperar una pareja de datos sin recorrer manualmente las posiciones anteriores.
+Primero introduzco una posición válida y después consulto ese índice en las dos listas. Si escribo 2, obtengo Carlos: 92 puntos. Así puedo encontrar directamente el nombre y la nota que corresponden a una posición.
 
 ## 3. Recorrido mediante ciclos
 
@@ -121,7 +121,7 @@ for indice in range(len(estudiantes)):
     print(f"{indice}. {estudiantes[indice]}: {calificaciones[indice]} puntos")
 ```
 
-`len` obtiene cinco y `range(5)` genera los índices 0, 1, 2, 3 y 4. El ciclo repite la impresión para cada uno. El resultado son las cinco líneas del listado inicial. Se relacionan aquí el recorrido del vector y el acceso mediante subíndices.
+Con len obtengo la cantidad de estudiantes, que es cinco. range(5) genera los índices 0, 1, 2, 3 y 4. En cada repetición utilizo el índice para mostrar un nombre y su nota. Al terminar, aparecen los cinco estudiantes del listado.
 
 ## 4. Condiciones y conteo
 
@@ -132,7 +132,7 @@ if aprobo == aprobados:
     cantidad = cantidad + 1
 ```
 
-La comparación determina si una nota llega a 70. El parámetro `aprobados` indica qué grupo se quiere mostrar: `True` para aprobados y `False` para reprobados. Cada coincidencia aumenta el contador. Inicialmente hay tres aprobados y dos reprobados. Las condiciones permiten decidir qué elementos cumplen una regla; `if`, `elif` y `else` también seleccionan las operaciones del menú.
+Utilicé una comparación para saber si cada nota alcanza los 70 puntos. Con el parámetro aprobados elijo el grupo: True para aprobados y False para reprobados. Cuando encuentro una nota del grupo elegido, muestro el nombre y aumento cantidad en uno. Con los valores iniciales obtengo tres aprobados y dos reprobados. También utilicé if, elif y else para elegir las operaciones del menú.
 
 ## 5. Cálculo del promedio
 
@@ -143,7 +143,7 @@ for nota in calificaciones:
 return total / len(calificaciones)
 ```
 
-El acumulador empieza en cero y suma cada calificación. La suma inicial es 85 + 67 + 92 + 74 + 58 = 376; 376 / 5 = 75.2. El formato de impresión muestra 75.20. Se combinan recorrido y operaciones matemáticas. La función supone una lista no vacía; en esta aplicación siempre existen cinco notas.
+Para calcular el promedio, empecé con total en cero y utilicé un ciclo for para sumar las calificaciones. La suma inicial es 85 + 67 + 92 + 74 + 58 = 376; 376 / 5 = 75.2. El formato de impresión muestra 75.20. Con este cálculo relaciono el recorrido de la lista con la suma y la división. La lista debe tener elementos para poder dividir entre su longitud; en este programa siempre hay cinco notas.
 
 ## 6. Modificación
 
@@ -153,7 +153,7 @@ calificaciones[indice] = nueva
 print(f"{estudiantes[indice]}: antes {anterior}, ahora {nueva} puntos")
 ```
 
-Antes de este fragmento se validan el índice y la nueva nota. Para el índice 1 y el valor 80, la salida indica Luis: antes 67, ahora 80 puntos. La lista queda [85, 80, 92, 74, 58] y el promedio pasa a 77.80. La asignación sustituye un elemento y conserva su correspondencia con el nombre.
+Primero introduzco un índice y una nota dentro de los límites permitidos. Al elegir el índice 1 y escribir 80, aparece el mensaje Luis: antes 67, ahora 80 puntos. La lista queda [85, 80, 92, 74, 58] y el promedio pasa a 77.80. Cambio solamente la nota de esa posición, por lo que el nombre de Luis sigue relacionado con su calificación.
 
 ## 7. Búsqueda
 
@@ -164,7 +164,7 @@ for indice in range(len(estudiantes)):
 return -1
 ```
 
-La función compara los nombres uno a uno. `lower` permite buscar Luis escribiendo luis, y `strip` elimina espacios al comienzo y al final de la entrada. Se devuelve 1 para Luis y -1 si no hay coincidencia; el menú comprueba -1 antes de acceder a las listas y muestra Estudiante no registrado. No se eliminan tildes: los datos iniciales contienen Maria sin tilde. La búsqueda aplica recorrido y comparación.
+Para buscar un estudiante, comparo los nombres uno por uno. `lower` permite buscar Luis escribiendo luis, y `strip` elimina espacios al comienzo y al final de la entrada. Si busco a Luis, obtengo su índice, que es 1. Si no encuentro el nombre, la función devuelve -1 y muestro Estudiante no registrado. Conservo Maria sin tilde en los datos iniciales; la búsqueda no elimina las tildes, aunque sí permite escribir el nombre con distintas mayúsculas. Así utilizo un ciclo y una condición para encontrar el nombre que busco.
 
 ## 8. Validación de índices
 
@@ -181,7 +181,7 @@ def leer_entero(mensaje, minimo, maximo):
         print(f"Valor fuera de rango: debe estar entre {minimo} y {maximo}.")
 ```
 
-Esta función solicita un entero y solo lo devuelve si se encuentra dentro de los límites indicados. Para consultar una nota se usa el rango de 0 a 4. Si escribo letras, se captura ValueError; si escribo 9, se muestra Valor fuera de rango y se solicita otra entrada. Así evito acceder a una posición inexistente y producir IndexError. El ciclo while permite corregir el dato sin cerrar el programa.
+Con esta función solicito un entero y acepto el dato únicamente cuando está dentro de los límites indicados. Para consultar una nota utilicé el rango de 0 a 4. Si escribo letras, recibo un mensaje para introducir un entero; si escribo 9, obtengo Valor fuera de rango y puedo intentarlo otra vez. Utilicé while para repetir la pregunta y evitar que un índice inexistente produzca IndexError.
 
 # REPOSITORIO DEL PROYECTO
 
@@ -189,21 +189,21 @@ Nombre del proyecto: Sistema de Calificaciones en Python.
 
 Repositorio GitHub: https://github.com/mrcarlos1990/sistema-calificaciones-python-capitulo-ix
 
-El repositorio es público y permite consultar el código completo de main.py. Incluye README.md con la descripción, el objetivo, las funcionalidades y las instrucciones de ejecución. En Windows puedo abrir la carpeta en Visual Studio Code y ejecutar `py main.py` en la terminal integrada.
-
-El acceso público y la presencia de main.py y README.md se comprobaron el 10 de octubre de 2026. Esta revisión del PDF y las siete imágenes están preparadas localmente; todavía no sustituyen la documentación anterior publicada en GitHub.
+Publiqué el proyecto en un repositorio público de GitHub para que el profesor pueda consultar mi código sin solicitar permisos. Incluí main.py y un README con la descripción, el objetivo, las funciones y las instrucciones para ejecutar el programa. Para usarlo en Windows, puedo abrir la carpeta en Visual Studio Code y escribir `py main.py` en la terminal integrada.
 
 # Evidencias de ejecución
 
-Las siete capturas reales aportadas por el estudiante se presentan completas y en orden, con sus títulos y explicaciones. Los avisos Unknown word son del corrector ortográfico del editor, no errores de ejecución. Las indicaciones de tipo atenuadas son ayudas visuales de VS Code. Además, once registros TXT conservan las entradas y salidas de las pruebas; resultados.json contiene sus comprobaciones. Las páginas horizontales facilitan la lectura de las figuras.
+Durante la ejecución en Visual Studio Code tomé estas siete capturas para mostrar cómo trabajé con el programa. En ellas presento el código, las listas, el menú y los resultados. También muestro cómo cambié una nota, corregí un índice incorrecto y finalicé la ejecución.
 
 {{FIGURAS_REALES}}
 
 # Casos de prueba
 
-Se ejecutó `python -m unittest discover -s pruebas -v` con Python 3.12.14. Un método automatizado contiene once sesiones independientes. Cada sesión inicia el programa con las listas originales y termina con la opción 0. Los estados de la tabla se obtienen del archivo resultados.json generado por esa ejecución; no se asignan sin comprobar las salidas.
+Para comprobar mi programa utilicé once casos de prueba y comparé los resultados esperados con los obtenidos. Revisé el listado, el promedio, la consulta por índice, la modificación de notas, los aprobados y reprobados, la búsqueda y la salida. También observé cómo responde ante entradas incorrectas.
 
-La modificación de Luis a 80 se comprueba dentro de una sola sesión. Las pruebas de aprobados y reprobados parten de los datos iniciales en otra sesión. La sesión 9 comprueba notas 0, 100 y el umbral exacto de 70. La sesión 10 verifica el resumen tras modificar a Luis y la 11 comprueba la salida directa con la opción 0. Los detalles íntegros, incluidas las entradas y las salidas completas, están en las transcripciones.
+En cada caso partí de las calificaciones originales. Al cambiar la nota de Luis de 67 a 80, comprobé que el listado muestra 80 y que el promedio pasa de 75.20 a 77.80. Con las notas iniciales obtuve tres aprobados y dos reprobados. Los casos con notas de 0, 100 y 70 me permitieron revisar los límites y el mínimo de aprobación. Al introducir un índice inexistente, pude corregirlo y continuar. Los once casos de la tabla terminaron correctamente.
+
+En la columna Datos utilizados, los valores separados por punto y coma indican las entradas en el orden en que se escriben. Por ejemplo, 2; 2; 0 significa elegir la consulta por índice, escribir el índice 2 y salir con la opción 0.
 
 {{TABLA_PRUEBAS}}
 
@@ -223,7 +223,7 @@ Los vectores me ayudan a organizar varios valores y a procesarlos sin crear una 
 
 ## ¿Cómo se relacionan los ciclos con los arreglos?
 
-El ciclo for permite visitar los elementos para mostrarlos, sumarlos o buscar un nombre. El ciclo while del sistema mantiene el menú disponible y repite la solicitud cuando la entrada no es válida. Las condiciones seleccionan las opciones y permiten identificar quién cumple el mínimo de 70 puntos definido para este ejercicio.
+Con for recorrí las listas para mostrar las notas, sumarlas y buscar un nombre. Utilicé while para mantener el menú disponible y volver a solicitar un dato incorrecto. Con las condiciones elegí cada operación e identifiqué a quienes alcanzan el mínimo de 70 puntos que establecí para el ejercicio.
 
 ## ¿Qué dificultad encontré desarrollando el programa?
 
@@ -245,4 +245,4 @@ Python Software Foundation. Estructuras de datos. Tutorial oficial de Python. ht
 
 Python Software Foundation. Más herramientas para control de flujo. Tutorial oficial de Python. https://docs.python.org/es/3/tutorial/controlflow.html. Consulta: 10 de octubre de 2026. Referencia para for, condiciones y control de ciclos.
 
-Las explicaciones y los ejemplos del proyecto se redactaron para esta asignación. Las referencias respaldan el comportamiento del lenguaje y no se reproducen definiciones extensas de las páginas consultadas.
+Estas fuentes me sirven de apoyo para comprender las listas, los índices y los ciclos de Python. Explico los conceptos con mis propias palabras y los relaciono con el programa de calificaciones.

@@ -10,7 +10,7 @@ import re
 from xml.sax.saxutils import escape
 
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY
+from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT
 from reportlab.lib.pagesizes import letter, landscape
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import (
@@ -26,13 +26,15 @@ ORIGINAL = RAIZ / "documentacion" / "Amauri_Feliz_Actividad_Arreglos.pdf"
 SALIDA = RAIZ / "ENTREGA_FINAL" / "Amauri_Feliz_Actividad_Arreglos.pdf"
 estilos = getSampleStyleSheet()
 estilos.add(ParagraphStyle(name="TextoAcademico", fontName="Helvetica", fontSize=10.5,
-    leading=15, alignment=TA_JUSTIFY, spaceAfter=9, allowWidows=0, allowOrphans=0))
+    leading=14, alignment=TA_JUSTIFY, spaceAfter=8, allowWidows=0, allowOrphans=0))
 estilos.add(ParagraphStyle(name="TituloAcademico", fontName="Helvetica-Bold", fontSize=17,
     leading=22, textColor=colors.HexColor("#163852"), spaceAfter=14, spaceBefore=18, keepWithNext=True))
 estilos.add(ParagraphStyle(name="SubtituloAcademico", fontName="Helvetica-Bold", fontSize=12,
     leading=16, textColor=colors.HexColor("#163852"), spaceBefore=10, spaceAfter=8, keepWithNext=True))
 estilos.add(ParagraphStyle(name="CodigoAcademico", fontName="Courier", fontSize=8,
     leading=11, backColor=colors.HexColor("#F0F3F6"), borderPadding=8, spaceAfter=12))
+estilos.add(ParagraphStyle(name="CodigoValidacion", parent=estilos["CodigoAcademico"], fontSize=8.5))
+estilos.add(ParagraphStyle(name="Referencia", parent=estilos["TextoAcademico"], alignment=TA_LEFT))
 estilos.add(ParagraphStyle(name="Celda", fontName="Helvetica", fontSize=8, leading=11))
 estilos.add(ParagraphStyle(name="Portada", fontName="Helvetica-Bold", fontSize=24,
     leading=31, alignment=TA_CENTER, textColor=colors.HexColor("#163852"), spaceAfter=24))
@@ -83,19 +85,27 @@ def figuras_revisadas():
     return revisadas
 
 
-def agregar_figuras(contenido):
+def agregar_figuras(contenido, introduccion):
     figuras = figuras_revisadas()
     contenido.append(NextPageTemplate("figuras"))
-    for figura in figuras:
+    for numero, figura in enumerate(figuras):
         contenido.append(PageBreak())
-        contenido.append(parrafo(figura["titulo"], "SubtituloAcademico"))
+        if numero == 0:
+            titulo = ParagraphStyle(name="TituloAcademico", parent=estilos["TituloAcademico"],
+                                    spaceBefore=0, spaceAfter=8, leading=20)
+            texto = ParagraphStyle(name="IntroduccionFiguras", parent=estilos["TextoAcademico"],
+                                   leading=13, spaceAfter=8)
+            contenido.append(Paragraph("Evidencias de ejecución", titulo))
+            contenido.append(Paragraph(escape(introduccion), texto))
+        subtitulo = ParagraphStyle(name="TituloFigura", parent=estilos["SubtituloAcademico"], spaceBefore=0)
+        contenido.append(Paragraph(escape(figura["titulo"]), subtitulo))
         # Incrusto los píxeles sin recompresión con pérdida; conservo el archivo original.
         datos = BytesIO()
         with ImagenOriginal.open(RAIZ / "evidencias" / figura["archivo"]) as original:
             original.convert("RGB").save(datos, format="PNG")
         datos.seek(0)
         imagen = Image(datos)
-        escala = min(684 / imagen.imageWidth, 400 / imagen.imageHeight)
+        escala = min(684 / imagen.imageWidth, (320 if numero == 0 else 400) / imagen.imageHeight)
         imagen.drawWidth = imagen.imageWidth * escala
         imagen.drawHeight = imagen.imageHeight * escala
         contenido.append(imagen)
@@ -108,13 +118,21 @@ def agregar_figuras(contenido):
     contenido.append(PageBreak())
 
 
+class TablaPruebas(LongTable):
+    def split(self, ancho, alto):
+        partes = super().split(ancho, alto)
+        if len(partes) > 1:
+            return [partes[0], parrafo("Casos de prueba (continuación)", "SubtituloAcademico"), *partes[1:]]
+        return partes
+
+
 def tabla_pruebas():
     resultados = json.loads((RAIZ / "evidencias/resultados.json").read_text(encoding="utf-8"))
     filas = [[parrafo(t, "Celda") for t in ["Prueba", "Datos utilizados", "Resultado esperado", "Resultado obtenido", "Estado"]]]
     for i, resultado in enumerate(resultados):
         filas.append([parrafo(t, "Celda") for t in [f"{i+1}. {resultado['prueba']}", resultado["entradas"].replace(" → ", "; "),
-            resultado["esperado"], resultado["obtenido"] + f". Registro {i+1:02}.", resultado["estado"]]])
-    tabla = LongTable(filas, colWidths=[80, 100, 130, 130, 64], repeatRows=1, hAlign="LEFT")
+            resultado["esperado"], resultado["obtenido"], resultado["estado"]]])
+    tabla = TablaPruebas(filas, colWidths=[80, 100, 130, 130, 64], repeatRows=1, hAlign="LEFT")
     tabla.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#DCE8F1")),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
@@ -147,9 +165,17 @@ def generar():
     contenido.extend([indice, PageBreak()])
     texto = (RAIZ / "documentacion/investigacion.md").read_text(encoding="utf-8")
     bloques = texto.split("\n\n")
+    introduccion_figuras = ""
+    preparando_figuras = False
     for bloque in bloques:
         bloque = bloque.strip()
         if not bloque:
+            continue
+        if bloque == "# Evidencias de ejecución":
+            preparando_figuras = True
+            continue
+        if preparando_figuras and bloque != "{{FIGURAS_REALES}}":
+            introduccion_figuras += (" " if introduccion_figuras else "") + bloque
             continue
         if bloque.startswith("# "):
             contenido.append(parrafo(bloque[2:], "TituloAcademico"))
@@ -160,14 +186,19 @@ def generar():
             grupo = []
             if isinstance(contenido[-1], Paragraph) and contenido[-1].style.name == "SubtituloAcademico":
                 grupo.append(contenido.pop())
-            grupo.append(Preformatted(codigo, estilos["CodigoAcademico"]))
+                if contenido and isinstance(contenido[-1], Paragraph) and contenido[-1].style.name == "TituloAcademico":
+                    grupo.insert(0, contenido.pop())
+            estilo_codigo = "CodigoValidacion" if codigo.startswith("def leer_entero(") else "CodigoAcademico"
+            grupo.append(Preformatted(codigo, estilos[estilo_codigo], dedent=0))
             contenido.append(KeepTogether(grupo))
         elif bloque == "{{TABLA_PRUEBAS}}":
             contenido.append(tabla_pruebas())
         elif bloque == "{{FIGURAS_REALES}}":
-            agregar_figuras(contenido)
+            agregar_figuras(contenido, introduccion_figuras)
+            preparando_figuras = False
         else:
-            contenido.append(parrafo(bloque.replace("\n", " ").replace("`", "")))
+            contenido.append(parrafo(bloque.replace("\n", " ").replace("`", ""),
+                                     "Referencia" if bloque.startswith("Python Software Foundation.") else "TextoAcademico"))
     documento.multiBuild(contenido)
     generado = PdfReader(str(SALIDA))
     original = PdfReader(str(ORIGINAL))
