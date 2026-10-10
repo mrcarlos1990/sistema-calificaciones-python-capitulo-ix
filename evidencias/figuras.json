@@ -1,9 +1,51 @@
 [
-  {"archivo": "captura_01.png", "titulo": "Figura 1. Código fuente del programa.", "explicacion": "Archivo main.py abierto en Visual Studio Code; se muestran las funciones que organizan el sistema.", "revisada": false, "sha256": null},
-  {"archivo": "captura_02.png", "titulo": "Figura 2. Vectores iniciales.", "explicacion": "Las listas contienen cinco nombres y cinco notas. Un mismo índice relaciona cada estudiante con su calificación.", "revisada": false, "sha256": null},
-  {"archivo": "captura_03.png", "titulo": "Figura 3. Menú principal.", "explicacion": "El programa ofrece las operaciones y espera una opción en la terminal integrada de Visual Studio Code.", "revisada": false, "sha256": null},
-  {"archivo": "captura_04.png", "titulo": "Figura 4. Resultados académicos.", "explicacion": "Con los datos iniciales, el promedio es 75.20, la nota más alta es 92 y la más baja es 58.", "revisada": false, "sha256": null},
-  {"archivo": "captura_05.png", "titulo": "Figura 5. Modificación de una calificación.", "explicacion": "La nota de Luis, en el índice 1, cambia de 67 a 80. El listado posterior muestra el valor actualizado.", "revisada": false, "sha256": null},
-  {"archivo": "captura_06.png", "titulo": "Figura 6. Validación del programa.", "explicacion": "El índice 9 se rechaza porque solo se admiten índices de 0 a 4. Al corregirlo a 2, se consulta a Carlos con 92 puntos.", "revisada": false, "sha256": null},
-  {"archivo": "captura_07.png", "titulo": "Figura 7. Ejecución final.", "explicacion": "La opción 0 termina el ciclo del menú y devuelve el control a la terminal con un mensaje de cierre correcto.", "revisada": false, "sha256": null}
+  {
+    "archivo": "captura_01.png",
+    "titulo": "Figura 1. Código fuente desarrollado en Python.",
+    "explicacion": "Presento main.py abierto en Visual Studio Code. La función leer_entero valida las entradas y el ciclo for permite mostrar las calificaciones.",
+    "revisada": true,
+    "sha256": "835771af7eb96e94b041241a8ab4bd72973bb37d4657f39fa95a09671cac0f7b"
+  },
+  {
+    "archivo": "captura_02.png",
+    "titulo": "Figura 2. Creación de los vectores.",
+    "explicacion": "Utilizo dos listas de cinco elementos. Relaciono cada nombre con su nota mediante el mismo índice; por ejemplo, Ana ocupa la posición 0 y tiene 85 puntos.",
+    "revisada": true,
+    "sha256": "2c3b7b00e2f05533f615e50d6aec994e0545a37f46bfe47ece39b7c76cc97c37"
+  },
+  {
+    "archivo": "captura_03.png",
+    "titulo": "Figura 3. Ejecución inicial del programa.",
+    "explicacion": "Inicio el programa desde la terminal integrada de Visual Studio Code. El menú ofrece diez operaciones y la opción 0 para salir.",
+    "revisada": true,
+    "sha256": "8e77c3865bf1280787a7ca13381123487ea3e8be6251974763c3cc60ce746531"
+  },
+  {
+    "archivo": "captura_04.png",
+    "titulo": "Figura 4. Resultados generales de las calificaciones.",
+    "explicacion": "Consulto el resumen con los datos iniciales. Obtengo un promedio de 75.20, una nota máxima de 92 y una mínima de 58; hay tres aprobados y dos reprobados.",
+    "revisada": true,
+    "sha256": "c59313a14d221b2e29e90862c2c13ee3e1c6daab67912e039f58196b59375be7"
+  },
+  {
+    "archivo": "captura_05.png",
+    "titulo": "Figura 5. Modificación de una calificación.",
+    "explicacion": "Selecciono la opción 8, el índice 1 y la nota 80. El mensaje confirma que la calificación de Luis cambió de 67 a 80 puntos y el menú continúa disponible.",
+    "revisada": true,
+    "sha256": "85db8ac9a0d0ee150757de3633f457b7d08e9a8bd3eccbf7b913d7e484a0fa72"
+  },
+  {
+    "archivo": "captura_06.png",
+    "titulo": "Figura 6. Validación de índices incorrectos.",
+    "explicacion": "Introduzco el índice 9 y el programa lo rechaza. Al corregirlo a 2, consulto a Carlos con 92 puntos; la validación permite continuar sin cerrar el sistema.",
+    "revisada": true,
+    "sha256": "19f11d3e5daf141e162c185a2c1c4e6da5b57bc515b0de49e179b3f7c41ba032"
+  },
+  {
+    "archivo": "captura_07.png",
+    "titulo": "Figura 7. Finalización correcta del programa.",
+    "explicacion": "Selecciono la opción 0. El mensaje Programa finalizado correctamente y el regreso a la terminal muestran que el ciclo del menú terminó de forma normal.",
+    "revisada": true,
+    "sha256": "7d79139c4ce82cd8804906e05b168bf35492bd3c5b8901898a99df3e54436e13"
+  }
 ]

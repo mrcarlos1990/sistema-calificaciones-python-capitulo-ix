@@ -1,4 +1,4 @@
-# Sistema de Control de Calificaciones - Capítulo IX
+# Sistema de Calificaciones en Python — Capítulo IX
 
 **Estudiante:** Amauri Feliz Valenzuela · **Institución:** Instituto Tecnológico de Las Américas (ITLA).
 **Asignatura:** Introducción a la Programación · **Profesor:** Jimmy Gómez.
@@ -57,15 +57,17 @@ El índice 0 corresponde a Ana y a 85. Hay cinco elementos; el último índice e
 py -m unittest discover -s pruebas -v
 ```
 
-Un método de prueba ejecuta nueve sesiones independientes de `main.py`, con sus datos iniciales restaurados. Comprueba resultados, salida normal y ausencia de errores. Las pruebas generan `evidencias/ejecucion_01.txt` a `ejecucion_09.txt` y `resultados.json`. El código de las pruebas emplea herramientas estándar para automatizar la comprobación; esas herramientas no forman parte de la lógica que se estudia en `main.py`.
+Un método de prueba ejecuta once sesiones independientes de `main.py`, con sus datos iniciales restaurados. Comprueba resultados, salida normal y ausencia de errores. Las pruebas generan `evidencias/ejecucion_01.txt` a `ejecucion_11.txt` y `resultados.json`. El código de las pruebas emplea herramientas estándar para automatizar la comprobación; esas herramientas no forman parte de la lógica que se estudia en `main.py`.
 
 ## Evidencias disponibles
 
-Se conservan nueve transcripciones auténticas de procesos ejecutados y sus resultados estructurados. **No son capturas de pantalla.** Las siete figuras solicitadas quedan pendientes por falta de acceso a la interfaz nativa. Consultar `evidencias/GUIA_CAPTURAS.md` para obtenerlas. No hay imágenes falsas ni archivos vacíos.
+Se conservan once transcripciones auténticas de procesos ejecutados y sus resultados estructurados. **No son capturas de pantalla.** Las siete capturas auténticas aportadas por el estudiante se revisaron y se incorporaron al PDF con sus títulos y explicaciones. Están en `evidencias/captura_01.png` a `captura_07.png`. Los originales se conservan completos. Los avisos Unknown word corresponden al corrector ortográfico del editor, no a errores del programa.
 
 ## Documentación
 
-- `documentacion/Amauri_Feliz_Actividad_Arreglos.pdf`: investigación, desarrollo, siete componentes explicados, pruebas, fuentes y pendientes.
+- `ENTREGA_FINAL/Amauri_Feliz_Actividad_Arreglos.pdf`: documento único para entregar, revisado contra el mandato; incluye la portada institucional, investigación, ocho componentes explicados, once casos de prueba, siete capturas, conclusión y fuentes.
+- `documentacion/Amauri_Feliz_Actividad_Arreglos.pdf`: versión original conservada.
+- `documentacion/INFORME_CUMPLIMIENTO.md`: auditoría detallada de esta revisión.
 - `documentacion/investigacion.md`: texto editable de la investigación.
 - `documentacion/GUIA_DEFENSA.md`: respuestas breves para la evaluación.
 - `documentacion/AUDITORIA.md`: cumplimiento y limitaciones.
@@ -76,7 +78,11 @@ Repositorio público creado y verificado en la cuenta `mrcarlos1990`, con autori
 
 [sistema-calificaciones-python-capitulo-ix](https://github.com/mrcarlos1990/sistema-calificaciones-python-capitulo-ix)
 
-El código completo, las pruebas, sus transcripciones y el PDF se publican en este repositorio. Las siete capturas de Visual Studio Code siguen pendientes; el PDF está identificado como versión para revisión hasta incorporarlas y verificarlo de nuevo.
+El documento para entregar es el PDF de 18 páginas de `ENTREGA_FINAL`, con la portada institucional y las siete capturas reales:
+
+[Descargar Amauri_Feliz_Actividad_Arreglos.pdf](https://github.com/mrcarlos1990/sistema-calificaciones-python-capitulo-ix/raw/refs/heads/main/ENTREGA_FINAL/Amauri_Feliz_Actividad_Arreglos.pdf)
+
+El PDF de `documentacion` se conserva como versión anterior. La actualización del README, las evidencias, las pruebas y el documento definitivo cuenta con autorización expresa del estudiante.
 
 Para descargar una copia independiente en Windows:
 
@@ -86,9 +92,7 @@ cd sistema-calificaciones-python-capitulo-ix
 py main.py
 ```
 
-Para subir las capturas manualmente, abrir la carpeta evidencias en GitHub, seleccionar **Add file > Upload files** y elegir las siete imágenes reales revisadas. Actualizar también el PDF después de incorporarlas. No subir archivos del proyecto de préstamos que contiene esta carpeta.
-
-La publicación fue comprobada sin credenciales: acceso HTTP 200, comparación de las huellas Git de los archivos y descarga del PDF idéntica al archivo local. La herramienta documentacion/verificar_publicacion.py permite repetir esa comparación desde esta carpeta; requiere acceso a Internet y compara los archivos versionados locales con la rama main pública.
+La herramienta `documentacion/verificar_publicacion.py` permite verificar el acceso público, comparar los archivos versionados locales con la rama `main` y descargar el PDF definitivo para comprobar que sus bytes son idénticos. Requiere acceso a Internet.
 
 ## Fuentes
 

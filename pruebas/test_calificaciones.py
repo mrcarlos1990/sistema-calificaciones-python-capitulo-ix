@@ -16,6 +16,8 @@ CASOS = [
     ("Búsqueda", "9\n  lUiS  \n9\nSofia\n0\n", ["Índice 1. Luis: 67", "Estudiante no registrado."]),
     ("Extremos y resumen", "10\n0\n", ["Promedio general: 75.20", "Calificación más alta: 92", "Calificación más baja: 58", "Cantidad: 3", "Cantidad: 2"]),
     ("Límites y aprobación en 70", "8\n0\n0\n8\n1\n100\n8\n4\n70\n10\n0\n", ["Ana: antes 85, ahora 0", "Luis: antes 67, ahora 100", "Pedro: antes 58, ahora 70", "Promedio general: 67.20", "Cantidad: 4", "Cantidad: 1"]),
+    ("Resumen después de modificar a Luis", "8\n1\n80\n10\n0\n", ["Luis: antes 67, ahora 80", "1. Luis: 80 puntos", "Promedio general: 77.80", "Calificación más alta: 92", "Calificación más baja: 58", "Cantidad: 4", "Cantidad: 1"]),
+    ("Salida con opción 0", "0\n", ["Programa finalizado correctamente."]),
 ]
 
 

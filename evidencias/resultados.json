@@ -61,5 +61,19 @@
     "esperado": "Ana: antes 85, ahora 0; Luis: antes 67, ahora 100; Pedro: antes 58, ahora 70; Promedio general: 67.20; Cantidad: 4; Cantidad: 1",
     "obtenido": "Ana: antes 85, ahora 0; Luis: antes 67, ahora 100; Pedro: antes 58, ahora 70; Promedio general: 67.20; Cantidad: 4; Cantidad: 1",
     "estado": "APROBADA"
+  },
+  {
+    "prueba": "Resumen después de modificar a Luis",
+    "entradas": "8 → 1 → 80 → 10 → 0",
+    "esperado": "Luis: antes 67, ahora 80; 1. Luis: 80 puntos; Promedio general: 77.80; Calificación más alta: 92; Calificación más baja: 58; Cantidad: 4; Cantidad: 1",
+    "obtenido": "Luis: antes 67, ahora 80; 1. Luis: 80 puntos; Promedio general: 77.80; Calificación más alta: 92; Calificación más baja: 58; Cantidad: 4; Cantidad: 1",
+    "estado": "APROBADA"
+  },
+  {
+    "prueba": "Salida con opción 0",
+    "entradas": "0",
+    "esperado": "Programa finalizado correctamente.",
+    "obtenido": "Programa finalizado correctamente.",
+    "estado": "APROBADA"
   }
 ]

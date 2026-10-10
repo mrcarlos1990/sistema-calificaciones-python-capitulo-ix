@@ -33,9 +33,12 @@ def verificar():
         comparados.append(relativo)
     pagina = obtener("https://github.com/" + REPOSITORIO)
     assert b"sistema-calificaciones-python-capitulo-ix" in pagina
-    pdf = "documentacion/Amauri_Feliz_Actividad_Arreglos.pdf"
+    pdf = "ENTREGA_FINAL/Amauri_Feliz_Actividad_Arreglos.pdf"
     descargado = obtener("https://raw.githubusercontent.com/" + REPOSITORIO + "/main/" + pdf)
     assert descargado == (RAIZ / pdf).read_bytes()
+    from io import BytesIO
+    from pypdf import PdfReader
+    assert len(PdfReader(BytesIO(descargado)).pages) == 18
     resultado = {"url": metadata["html_url"], "publico": True,
                  "acceso_sin_credenciales": True, "archivos_identicos": comparados,
                  "pdf_descargado_identico": True, "rama": "main", "tree_sha": arbol["sha"]}
