@@ -1,0 +1,9 @@
+[
+  {"archivo": "captura_01.png", "titulo": "Figura 1. Código fuente del programa.", "explicacion": "Archivo main.py abierto en Visual Studio Code; se muestran las funciones que organizan el sistema.", "revisada": false, "sha256": null},
+  {"archivo": "captura_02.png", "titulo": "Figura 2. Vectores iniciales.", "explicacion": "Las listas contienen cinco nombres y cinco notas. Un mismo índice relaciona cada estudiante con su calificación.", "revisada": false, "sha256": null},
+  {"archivo": "captura_03.png", "titulo": "Figura 3. Menú principal.", "explicacion": "El programa ofrece las operaciones y espera una opción en la terminal integrada de Visual Studio Code.", "revisada": false, "sha256": null},
+  {"archivo": "captura_04.png", "titulo": "Figura 4. Resultados académicos.", "explicacion": "Con los datos iniciales, el promedio es 75.20, la nota más alta es 92 y la más baja es 58.", "revisada": false, "sha256": null},
+  {"archivo": "captura_05.png", "titulo": "Figura 5. Modificación de una calificación.", "explicacion": "La nota de Luis, en el índice 1, cambia de 67 a 80. El listado posterior muestra el valor actualizado.", "revisada": false, "sha256": null},
+  {"archivo": "captura_06.png", "titulo": "Figura 6. Validación del programa.", "explicacion": "El índice 9 se rechaza porque solo se admiten índices de 0 a 4. Al corregirlo a 2, se consulta a Carlos con 92 puntos.", "revisada": false, "sha256": null},
+  {"archivo": "captura_07.png", "titulo": "Figura 7. Ejecución final.", "explicacion": "La opción 0 termina el ciclo del menú y devuelve el control a la terminal con un mensaje de cierre correcto.", "revisada": false, "sha256": null}
+]

@@ -1,0 +1,60 @@
+CONTEXTO: ejecución del ejercicio con los datos de ejemplo fijados por el enunciado.
+Las notas modificadas son entradas de demostración; no se consultan expedientes académicos.
+
+ENTRADAS (una por línea):
+10
+0
+
+SALIDA REAL:
+
+========================================
+       SISTEMA DE CALIFICACIONES
+========================================
+1. Mostrar estudiantes y calificaciones
+2. Consultar calificación por índice
+3. Calcular promedio general
+4. Mostrar calificación más alta
+5. Mostrar calificación más baja
+6. Mostrar estudiantes aprobados
+7. Mostrar estudiantes reprobados
+8. Modificar una calificación
+9. Buscar estudiante
+10. Mostrar resumen general
+0. Salir
+Seleccione una opción: 0. Ana: 85 puntos
+1. Luis: 67 puntos
+2. Carlos: 92 puntos
+3. Maria: 74 puntos
+4. Pedro: 58 puntos
+Promedio general: 75.20
+Calificación más alta: 92
+Calificación más baja: 58
+Aprobados:
+Ana: 85 puntos
+Carlos: 92 puntos
+Maria: 74 puntos
+Cantidad: 3
+Reprobados:
+Luis: 67 puntos
+Pedro: 58 puntos
+Cantidad: 2
+
+========================================
+       SISTEMA DE CALIFICACIONES
+========================================
+1. Mostrar estudiantes y calificaciones
+2. Consultar calificación por índice
+3. Calcular promedio general
+4. Mostrar calificación más alta
+5. Mostrar calificación más baja
+6. Mostrar estudiantes aprobados
+7. Mostrar estudiantes reprobados
+8. Modificar una calificación
+9. Buscar estudiante
+10. Mostrar resumen general
+0. Salir
+Seleccione una opción: Programa finalizado correctamente.
+
+STDERR:
+
+Código de salida: 0

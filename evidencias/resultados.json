@@ -1,0 +1,65 @@
+[
+  {
+    "prueba": "Visualización inicial",
+    "entradas": "1 → 0",
+    "esperado": "0. Ana: 85; 1. Luis: 67; 2. Carlos: 92; 3. Maria: 74; 4. Pedro: 58",
+    "obtenido": "0. Ana: 85; 1. Luis: 67; 2. Carlos: 92; 3. Maria: 74; 4. Pedro: 58",
+    "estado": "APROBADA"
+  },
+  {
+    "prueba": "Promedio",
+    "entradas": "3 → 0",
+    "esperado": "Promedio general: 75.20",
+    "obtenido": "Promedio general: 75.20",
+    "estado": "APROBADA"
+  },
+  {
+    "prueba": "Consulta por índice",
+    "entradas": "2 → 2 → 0",
+    "esperado": "Carlos: 92 puntos",
+    "obtenido": "Carlos: 92 puntos",
+    "estado": "APROBADA"
+  },
+  {
+    "prueba": "Modificación",
+    "entradas": "8 → 1 → 80 → 1 → 3 → 0",
+    "esperado": "Luis: antes 67, ahora 80; 1. Luis: 80; Promedio general: 77.80",
+    "obtenido": "Luis: antes 67, ahora 80; 1. Luis: 80; Promedio general: 77.80",
+    "estado": "APROBADA"
+  },
+  {
+    "prueba": "Aprobados y reprobados",
+    "entradas": "6 → 7 → 0",
+    "esperado": "Ana: 85; Carlos: 92; Maria: 74; Cantidad: 3; Luis: 67; Pedro: 58; Cantidad: 2",
+    "obtenido": "Ana: 85; Carlos: 92; Maria: 74; Cantidad: 3; Luis: 67; Pedro: 58; Cantidad: 2",
+    "estado": "APROBADA"
+  },
+  {
+    "prueba": "Validación y continuidad",
+    "entradas": "letras → 99 → 2 → 9 → -1 → 2 → 8 → 0 → -5 → 101 → abc → 90 → 1 → 0",
+    "esperado": "escriba un número entero; entre 0 y 10; entre 0 y 4; entre 0 y 100; Ana: antes 85, ahora 90; 0. Ana: 90",
+    "obtenido": "escriba un número entero; entre 0 y 10; entre 0 y 4; entre 0 y 100; Ana: antes 85, ahora 90; 0. Ana: 90",
+    "estado": "APROBADA"
+  },
+  {
+    "prueba": "Búsqueda",
+    "entradas": "9 →   lUiS   → 9 → Sofia → 0",
+    "esperado": "Índice 1. Luis: 67; Estudiante no registrado.",
+    "obtenido": "Índice 1. Luis: 67; Estudiante no registrado.",
+    "estado": "APROBADA"
+  },
+  {
+    "prueba": "Extremos y resumen",
+    "entradas": "10 → 0",
+    "esperado": "Promedio general: 75.20; Calificación más alta: 92; Calificación más baja: 58; Cantidad: 3; Cantidad: 2",
+    "obtenido": "Promedio general: 75.20; Calificación más alta: 92; Calificación más baja: 58; Cantidad: 3; Cantidad: 2",
+    "estado": "APROBADA"
+  },
+  {
+    "prueba": "Límites y aprobación en 70",
+    "entradas": "8 → 0 → 0 → 8 → 1 → 100 → 8 → 4 → 70 → 10 → 0",
+    "esperado": "Ana: antes 85, ahora 0; Luis: antes 67, ahora 100; Pedro: antes 58, ahora 70; Promedio general: 67.20; Cantidad: 4; Cantidad: 1",
+    "obtenido": "Ana: antes 85, ahora 0; Luis: antes 67, ahora 100; Pedro: antes 58, ahora 70; Promedio general: 67.20; Cantidad: 4; Cantidad: 1",
+    "estado": "APROBADA"
+  }
+]
