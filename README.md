@@ -78,23 +78,17 @@ Repositorio público creado y verificado en la cuenta `mrcarlos1990`, con autori
 
 El código completo, las pruebas, sus transcripciones y el PDF se publican en este repositorio. Las siete capturas de Visual Studio Code siguen pendientes; el PDF está identificado como versión para revisión hasta incorporarlas y verificarlo de nuevo.
 
-Para publicarlo manualmente después de revisar:
-
-1. Iniciar sesión en GitHub, seleccionar **New repository**, nombre `sistema-calificaciones-python-capitulo-ix`.
-2. Elegir visibilidad conscientemente: el documento contiene nombre e información académica. No inicializar el remoto con README si se enviará la carpeta completa con Git.
-3. Desde la terminal de esta carpeta:
+Para descargar una copia independiente en Windows:
 
 ```powershell
-git init
-git add main.py README.md .gitignore .gitattributes pruebas evidencias documentacion
-git commit -m "Agrega proyecto académico de arreglos y vectores"
-git branch -M main
+git clone https://github.com/mrcarlos1990/sistema-calificaciones-python-capitulo-ix.git
+cd sistema-calificaciones-python-capitulo-ix
+py main.py
 ```
 
-4. Copiar la URL real que GitHub muestre y ejecutar `git remote add origin URL_REAL_COPIADA`, sustituyendo ese marcador. Ejecutar `git push -u origin main` y autenticarse si se solicita.
-5. Abrir el repositorio y verificar el código, las evidencias y el PDF. Agregar el enlace comprobado a este README y a la investigación, regenerar el PDF y subir la actualización.
+Para subir las capturas manualmente, abrir la carpeta evidencias en GitHub, seleccionar **Add file > Upload files** y elegir las siete imágenes reales revisadas. Actualizar también el PDF después de incorporarlas. No subir archivos del proyecto de préstamos que contiene esta carpeta.
 
-Alternativa sin Git: en el repositorio, **Add file > Upload files**, subir los archivos y carpetas de esta asignación y confirmar el envío. No subir archivos del proyecto de préstamos que contiene esta carpeta.
+La publicación fue comprobada sin credenciales: acceso HTTP 200, comparación de las huellas Git de los archivos y descarga del PDF idéntica al archivo local. La herramienta documentacion/verificar_publicacion.py permite repetir esa comparación desde esta carpeta; requiere acceso a Internet y compara los archivos versionados locales con la rama main pública.
 
 ## Fuentes
 

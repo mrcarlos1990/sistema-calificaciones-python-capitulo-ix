@@ -17,7 +17,7 @@
 13. PDF de nueve páginas: portada, índice y todas las secciones solicitadas; código y tabla incluidos. Fuente editable y generador conservados.
 14. **Pendiente:** siete capturas auténticas. No hay acceso a aplicaciones nativas; existen transcripciones reales y guía para capturar.
 15. Código completo preparado en repositorio Git local dedicado y publicado en GitHub, con pruebas y documentación.
-16. Repositorio público creado con autorización expresa: https://github.com/mrcarlos1990/sistema-calificaciones-python-capitulo-ix. Visibilidad pública confirmada por GitHub; los archivos publicados se verifican después de subirlos.
+16. Repositorio público creado con autorización expresa: https://github.com/mrcarlos1990/sistema-calificaciones-python-capitulo-ix. Visibilidad pública confirmada por GitHub; acceso anónimo HTTP 200, archivos remotos idénticos a los locales y PDF descargado idéntico.
 17. Archivos de entrega limitados a código, pruebas, documentación y evidencia. Las previsualizaciones temporales quedan excluidas por `.gitignore` y no se incluyen al publicar.
 18. Redacción revisada en español; los datos iniciales conservan Maria sin tilde para cumplir el enunciado. Se recomienda revisión final del estudiante.
 19. Fragmentos y explicaciones contrastados con main.py; resultados respaldados por transcripciones.
